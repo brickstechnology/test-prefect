@@ -26,5 +26,5 @@ def main(customer_ids: list[str]) -> list[str]:
 if __name__ == "__main__":
     main().serve(
         name="test_flow2",
-        parameters={"customer_ids": ["customer1", "customer2", "customer3"]},
+        # parameters={"customer_ids": ["customer1", "customer2", "customer3"]},
     )
