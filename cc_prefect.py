@@ -1,4 +1,3 @@
-import asyncio
 import random
 import time
 
@@ -25,16 +24,11 @@ async def write_to_db(customer_id: int):
     time.sleep(random.randint(0, 2))
 
 
-@flow
-async def main():
-    customer_ids = get_customer_ids()
-    taska = send_email_a.map(customer_ids)
-    taskb = send_email_b.map(customer_ids)
-    taskc = write_to_db.map(customer_ids)
+@flow()
+async def main(input_list: list[int]):
+    taska = send_email_a.map(input_list)
+    taskb = send_email_b.map(input_list)
+    taskc = write_to_db.map(input_list)
     wait(taska)
     wait(taskb)
     wait(taskc)
-
-
-if __name__ == "__main__":
-    asyncio.run(main())
