@@ -12,6 +12,8 @@ def get_customer_ids():
 @task(tags=["send-email"])
 async def send_email_a(customer_id: int):
     time.sleep(random.randint(0, 2))
+    if random.random() < 0.3:  # 30% chance of failure
+        raise Exception(f"Random failure for customer {customer_id}")
 
 
 @task(tags=["send-email"])
