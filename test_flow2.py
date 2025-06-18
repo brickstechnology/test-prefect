@@ -23,8 +23,8 @@ def main(customer_ids: list[str]) -> list[str]:
     return results
 
 
-if __name__ == "__main__":
-    main().serve(
-        name="test_flow2",
-        # parameters={"customer_ids": ["customer1", "customer2", "customer3"]},
-    )
+# if __name__ == "__main__":
+#     main().serve(
+#         name="test_flow2",
+#         # parameters={"customer_ids": ["customer1", "customer2", "customer3"]},
+#     )

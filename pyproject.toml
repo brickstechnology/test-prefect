@@ -5,5 +5,8 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "numpy>=2.3.0",
     "prefect>=3.3.7",
+    "prefect-dask>=0.3.5",
+    "pymupdf>=1.26.1",
 ]

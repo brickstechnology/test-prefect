@@ -28,7 +28,7 @@ deployments:
   entrypoint: test_flow2.py:main
   parameters: {}
   work_pool:
-    name: test
+    name: default
     work_queue_name: null
     job_variables: {}
   schedules: []
