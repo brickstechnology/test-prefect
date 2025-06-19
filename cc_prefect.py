@@ -26,6 +26,12 @@ async def write_to_db(customer_id: int):
     time.sleep(random.randint(0, 2))
 
 
+@task(tags=["open-file"])
+async def open_file(customer_id: int):
+    file = open("pdfs/2556_รวมกฎหมาย_ปกครอง_สว.pdf", "rb")
+    return file
+
+
 @flow()
 async def main(input_list: list[int]):
     taska = send_email_a.map(input_list)
@@ -34,3 +40,9 @@ async def main(input_list: list[int]):
     wait(taska)
     wait(taskb)
     wait(taskc)
+
+
+@flow()
+async def open_file_flow(input_list: list[int]):
+    taska = open_file.map(input_list)
+    wait(taska)
